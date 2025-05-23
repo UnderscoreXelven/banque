@@ -3,14 +3,14 @@ package org.example.model;
 public class Operation{
     //Properties
     private int idOperation;
-    private int idCustomer;
+    private int idAccount;
     private OperationStatus status;
     private double amount;
 
     //Constructor
-    public Operation(int idOperation, int idCustomer, OperationStatus status, double amount){
+    public Operation(int idOperation, int idAccount, OperationStatus status, double amount){
         this.idOperation = idOperation;
-        this.idCustomer = idCustomer;
+        this.idAccount = idAccount;
         this.status = status;
         this.amount = amount;
     }
@@ -25,12 +25,12 @@ public class Operation{
         this.idOperation = idOperation;
     }
 
-    public int getIdCustomer(){
-        return idCustomer;
+    public int getIdAccount(){
+        return idAccount;
     }
 
-    public void setIdCustomer(int idCustomer){
-        this.idCustomer = idCustomer;
+    public void setIdAccount(int idCustomer){
+        this.idAccount = idCustomer;
     }
 
     public OperationStatus getStatus(){
@@ -53,7 +53,7 @@ public class Operation{
     public String toString(){
         return "Operation{" +
                 "idOperation=" + idOperation +
-                ", idCustomer=" + idCustomer +
+                ", idCustomer=" + idAccount +
                 ", status=" + status +
                 ", amount=" + amount +
                 '}';
