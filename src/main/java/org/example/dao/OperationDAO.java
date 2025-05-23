@@ -121,4 +121,29 @@ public class OperationDAO extends BaseDAO<Operation> {
         }
         return operations;
     }
+
+    /**
+     * Retrieves all Operation entities of a Customer from the database
+     *
+     * @param id id the unique identifier of the Customer
+     * @return a List of all Operation objects
+     * @throws SQLException
+     */
+    public List<Operation> getOperationsAccount(int id) throws SQLException{
+        List<Operation> operations = new ArrayList<>();
+        request = "SELECT * FROM operation WHERE id_customer = ?";
+        preparedStatement = connection.prepareStatement(request);
+        preparedStatement.setInt(1,id);
+        resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            Operation operation = new Operation(
+                    resultSet.getInt("id_operation"),
+                    resultSet.getInt("id_account"),
+                    OperationStatus.valueOf(resultSet.getString("status")),  // conversion en enum
+                    resultSet.getDouble("amount")
+            );
+            operations.add(operation);
+        }
+        return operations;
+    }
 }
