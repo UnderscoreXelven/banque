@@ -16,7 +16,6 @@ public class CustomerDAO extends BaseDAO<Customer>{
     }
 
     //Methods
-
     /**
      * Create a customer in database
      * @param customer
